@@ -1,0 +1,1515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Speedline General Trading LLC — Global Commodities Trading, Dubai</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --navy: #0c1a2b;
+    --navy-2: #122844;
+    --navy-3: #1c3a5e;
+    --ink: #16202c;
+    --paper: #fbf9f4;
+    --paper-2: #f3eee3;
+    --line: #e4ddcd;
+    --muted: #5d6675;
+    --muted-light: #9aa6b6;
+    --gold: #bf9b53;
+    --gold-bright: #d8b86a;
+    --gold-soft: #f0e6cf;
+    --white-ish: #eef1f5;
+    --maxw: 1240px;
+    --r: 14px;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    font-family: "Inter", system-ui, sans-serif;
+    color: var(--ink);
+    background: var(--paper);
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, .display {
+    font-family: "Montserrat", system-ui, sans-serif;
+    margin: 0;
+    letter-spacing: -0.01em;
+    line-height: 1.08;
+  }
+
+  p { margin: 0; }
+  a { color: inherit; text-decoration: none; }
+
+  .wrap {
+    width: 100%;
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  .eyebrow {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 12.5px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 28px;
+    height: 1.5px;
+    background: var(--gold);
+    display: inline-block;
+  }
+  .eyebrow.center::before { display: none; }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.01em;
+    padding: 15px 28px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: transform .18s ease, background .18s ease, color .18s ease, border-color .18s ease;
+    white-space: nowrap;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-gold { background: var(--gold); color: #1a130a; }
+  .btn-gold:hover { background: var(--gold-bright); }
+  .btn-ghost { background: transparent; color: var(--white-ish); border-color: rgba(255,255,255,0.28); }
+  .btn-ghost:hover { border-color: var(--gold); color: var(--gold-bright); }
+  .btn-dark { background: var(--navy); color: #fff; }
+  .btn-dark:hover { background: var(--navy-2); }
+
+  .arrow { font-size: 18px; line-height: 1; }
+
+  /* ---------- NAV ---------- */
+  header.nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(251,249,244,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 76px;
+  }
+  .brand { display: flex; align-items: center; gap: 13px; }
+  .brand-mark {
+    width: 38px; height: 38px;
+    border-radius: 9px;
+    background: linear-gradient(135deg, var(--navy-2), var(--navy));
+    display: grid; place-items: center;
+    position: relative;
+    flex-shrink: 0;
+  }
+  .brand-mark::after {
+    content: "";
+    width: 14px; height: 14px;
+    border: 2px solid var(--gold-bright);
+    border-radius: 50%;
+    border-right-color: transparent;
+    transform: rotate(-45deg);
+  }
+  .brand-text { line-height: 1.05; }
+  .brand-name {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    letter-spacing: -0.01em;
+    color: var(--navy);
+  }
+  .brand-sub {
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+  }
+  nav.links { display: flex; align-items: center; gap: 34px; }
+  nav.links a {
+    font-family: "Montserrat", sans-serif;
+    font-size: 14.5px;
+    font-weight: 500;
+    color: var(--ink);
+    transition: color .15s;
+  }
+  nav.links a:hover { color: var(--gold); }
+  .nav-cta { margin-left: 8px; }
+  .menu-toggle {
+    display: none;
+    background: var(--navy);
+    color: #fff;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  /* ---------- MOBILE NAV OVERLAY ---------- */
+  .mobile-nav {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background: var(--navy);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 36px;
+  }
+  .mobile-nav.open { display: flex; }
+  .mobile-nav a {
+    font-family: "Montserrat", sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.01em;
+    transition: color .15s;
+  }
+  .mobile-nav a:hover { color: var(--gold-bright); }
+  .mobile-nav-close {
+    position: absolute;
+    top: 24px;
+    right: 28px;
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.7);
+    font-size: 32px;
+    cursor: pointer;
+    line-height: 1;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    position: relative;
+    background: var(--navy);
+    color: #fff;
+    overflow: hidden;
+    min-height: 620px;
+  }
+  /* Hero background: a subtle diagonal grain — replace this with a real image via .hero-bg-img */
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 120% 90% at 80% 20%, rgba(191,155,83,0.12), transparent 60%),
+      radial-gradient(ellipse 80% 80% at 10% 80%, rgba(28,58,94,0.6), transparent 55%),
+      repeating-linear-gradient(
+        -45deg,
+        rgba(255,255,255,0.012) 0px,
+        rgba(255,255,255,0.012) 1px,
+        transparent 1px,
+        transparent 8px
+      ),
+      var(--navy);
+  }
+  /* To use a real photo: add class "has-photo" to .hero and set --hero-photo to the image URL */
+  .hero.has-photo .hero-bg {
+    background: var(--navy);
+  }
+  .hero.has-photo .hero-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--hero-photo, none) center/cover no-repeat;
+  }
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(105deg, rgba(8,17,29,0.96) 0%, rgba(8,17,29,0.82) 42%, rgba(8,17,29,0.45) 100%),
+      radial-gradient(120% 90% at 90% 10%, rgba(191,155,83,0.18), transparent 55%);
+    pointer-events: none;
+  }
+  .hero-inner {
+    position: relative;
+    z-index: 2;
+    padding: 118px 0 124px;
+  }
+  .hero h1 {
+    font-weight: 800;
+    font-size: clamp(40px, 6vw, 74px);
+    max-width: 16ch;
+    margin: 26px 0 0;
+  }
+  .hero h1 .accent { color: var(--gold-bright); }
+  .hero-sub {
+    margin-top: 26px;
+    font-size: 19px;
+    line-height: 1.6;
+    max-width: 56ch;
+    color: rgba(255,255,255,0.82);
+  }
+  .hero-actions {
+    margin-top: 40px;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .hero-stats {
+    margin-top: 64px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 48px;
+    border-top: 1px solid rgba(255,255,255,0.14);
+    padding-top: 32px;
+  }
+  .hstat-num {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 34px;
+    color: var(--gold-bright);
+  }
+  .hstat-label {
+    font-size: 13.5px;
+    color: var(--muted-light);
+    letter-spacing: 0.04em;
+    margin-top: 4px;
+  }
+
+  /* ---------- TRUST STRIP ---------- */
+  .trust {
+    background: var(--navy-2);
+    color: rgba(255,255,255,0.72);
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .trust-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px 40px;
+    padding: 22px 0;
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+  .trust-inner span { display: inline-flex; align-items: center; gap: 10px; }
+  .trust-inner .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+
+  /* ---------- SECTION SCAFFOLD ---------- */
+  section.block { padding: 110px 0; }
+  .section-head { max-width: 720px; }
+  .section-head.center { margin: 0 auto; text-align: center; }
+  .section-head h2 {
+    font-weight: 800;
+    font-size: clamp(30px, 4vw, 46px);
+    margin-top: 18px;
+    color: var(--navy);
+  }
+  .section-head p { margin-top: 20px; font-size: 18px; color: var(--muted); }
+
+  /* ---------- ABOUT ---------- */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 72px;
+    align-items: center;
+  }
+  .about-copy h2 {
+    font-weight: 800;
+    font-size: clamp(30px, 4vw, 46px);
+    margin-top: 18px;
+    color: var(--navy);
+  }
+  .about-copy p { margin-top: 22px; color: var(--muted); font-size: 18px; }
+  .about-points { margin-top: 34px; display: grid; gap: 18px; }
+  .about-point { display: flex; gap: 15px; align-items: flex-start; }
+  .about-point .tick {
+    flex-shrink: 0;
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    background: var(--gold-soft);
+    display: grid; place-items: center;
+    margin-top: 2px;
+  }
+  .about-point .tick svg { width: 12px; height: 12px; }
+  .about-point b { font-family: "Montserrat", sans-serif; font-weight: 600; color: var(--navy); }
+  .about-point span { color: var(--muted); }
+
+  .about-visual { position: relative; }
+  .about-img-wrap {
+    width: 100%;
+    height: 520px;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    background:
+      repeating-linear-gradient(
+        45deg,
+        rgba(12,26,43,0.04) 0px, rgba(12,26,43,0.04) 1px,
+        transparent 1px, transparent 12px
+      ),
+      linear-gradient(160deg, #f3eee3, #e8ddc8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .about-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .about-img-placeholder {
+    text-align: center;
+    color: var(--muted);
+    pointer-events: none;
+    user-select: none;
+  }
+  .about-img-placeholder svg { opacity: 0.35; margin-bottom: 10px; }
+  .about-img-placeholder p { font-size: 13px; font-family: monospace; letter-spacing: 0.02em; }
+  .about-badge {
+    position: absolute;
+    left: -28px;
+    bottom: 40px;
+    background: var(--navy);
+    color: #fff;
+    padding: 24px 28px;
+    border-radius: 12px;
+    box-shadow: 0 24px 60px -20px rgba(12,26,43,0.55);
+    max-width: 240px;
+  }
+  .about-badge .big {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    color: var(--gold-bright);
+  }
+  .about-badge .small { font-size: 13.5px; color: var(--muted-light); margin-top: 4px; }
+
+  /* ---------- PRODUCTS ---------- */
+  .products { background: var(--paper-2); }
+  .prod-grid {
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 26px;
+  }
+  .prod-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--r);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s;
+  }
+  .prod-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 26px 50px -28px rgba(12,26,43,0.4);
+    border-color: var(--gold);
+  }
+  .prod-swatch {
+    height: 130px;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 16px 18px;
+  }
+  .prod-swatch .grade {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    padding: 6px 12px;
+    border-radius: 6px;
+    background: rgba(255,255,255,0.85);
+    color: var(--navy);
+    backdrop-filter: blur(2px);
+  }
+  .prod-swatch .icumsa {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    color: var(--navy);
+    background: rgba(255,255,255,0.85);
+    padding: 6px 10px;
+    border-radius: 6px;
+  }
+  .prod-body { padding: 24px 24px 26px; display: flex; flex-direction: column; flex: 1; }
+  .prod-body h3 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--navy);
+  }
+  .prod-desc { margin-top: 8px; color: var(--muted); font-size: 15px; flex: 1; }
+  .prod-specs {
+    margin-top: 20px;
+    border-top: 1px solid var(--line);
+    padding-top: 16px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 16px;
+  }
+  .spec .k {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted-light);
+    font-weight: 600;
+  }
+  .spec .v {
+    font-family: "Montserrat", sans-serif;
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-top: 2px;
+  }
+
+  /* ---------- CATEGORY CARDS ---------- */
+  .cat-grid {
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 26px;
+  }
+  .cat-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--r);
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform .22s ease, box-shadow .22s ease, border-color .22s;
+    display: flex;
+    flex-direction: column;
+  }
+  .cat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 26px 50px -24px rgba(12,26,43,0.38);
+    border-color: var(--gold);
+  }
+  .cat-swatch {
+    height: 110px;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+  }
+  .cat-body { padding: 24px 26px 26px; flex: 1; display: flex; flex-direction: column; }
+  .cat-body h3 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    color: var(--navy);
+  }
+  .cat-desc { margin-top: 8px; font-size: 15px; color: var(--muted); flex: 1; }
+  .cat-footer {
+    margin-top: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid var(--line);
+    padding-top: 14px;
+  }
+  .cat-count {
+    font-family: "Montserrat", sans-serif;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--muted-light);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .cat-cta {
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gold);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: gap .15s;
+  }
+  .cat-card:hover .cat-cta { gap: 10px; }
+
+  /* ---------- SUB-PRODUCT VIEW ---------- */
+  #cat-view, #sub-view { transition: opacity .22s ease; }
+  .subcat-header {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 52px;
+    flex-wrap: wrap;
+  }
+  .back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--navy);
+    border: 2px solid var(--navy);
+    border-radius: 9px;
+    padding: 13px 24px;
+    cursor: pointer;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: #fff;
+    transition: background .18s, border-color .18s, color .18s, transform .18s;
+    white-space: nowrap;
+    box-shadow: 0 4px 16px -4px rgba(12,26,43,0.28);
+  }
+  .back-btn:hover {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: #1a130a;
+    transform: translateY(-2px);
+  }
+  .subcat-title {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 800;
+    font-size: clamp(22px, 3vw, 32px);
+    color: var(--navy);
+    line-height: 1.1;
+  }
+  .subcat-breadcrumb { font-size: 13px; color: var(--muted); margin-top: 4px; }
+
+  /* ---------- WHY US ---------- */
+  .why-grid {
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: var(--r);
+    overflow: hidden;
+  }
+  .why-item { background: var(--paper); padding: 40px 36px; transition: background .2s; }
+  .why-item:hover { background: #fff; }
+  .why-icon {
+    width: 52px; height: 52px;
+    border-radius: 12px;
+    background: var(--navy);
+    display: grid; place-items: center;
+    margin-bottom: 22px;
+  }
+  .why-icon svg { width: 24px; height: 24px; stroke: var(--gold-bright); fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+  .why-item h3 { font-family: "Montserrat", sans-serif; font-weight: 700; font-size: 19px; color: var(--navy); }
+  .why-item p { margin-top: 10px; color: var(--muted); font-size: 15.5px; }
+
+  /* ---------- INQUIRY ---------- */
+  .inquiry { background: var(--navy); color: #fff; }
+  .inquiry-grid {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 70px;
+    align-items: start;
+  }
+  .inquiry-copy h2 { font-weight: 800; font-size: clamp(30px, 4vw, 44px); margin-top: 18px; }
+  .inquiry-copy p { margin-top: 20px; color: rgba(255,255,255,0.74); font-size: 18px; }
+  .inquiry-contacts { margin-top: 40px; display: grid; gap: 22px; }
+  .icontact { display: flex; gap: 16px; align-items: flex-start; }
+  .icontact .ico {
+    width: 42px; height: 42px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    display: grid; place-items: center;
+    flex-shrink: 0;
+  }
+  .icontact .ico svg { width: 18px; height: 18px; stroke: var(--gold-bright); fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+  .icontact .lbl { font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted-light); }
+  .icontact .val { font-family: "Montserrat", sans-serif; font-weight: 600; font-size: 16px; margin-top: 3px; }
+  .icontact .val span { display: block; font-weight: 500; font-size: 15px; color: rgba(255,255,255,0.85); }
+  .icontact .val a { color: var(--gold-bright); text-decoration: underline; text-underline-offset: 3px; }
+
+  .form-card {
+    background: var(--paper);
+    color: var(--ink);
+    border-radius: 18px;
+    padding: 40px;
+    box-shadow: 0 40px 80px -30px rgba(0,0,0,0.5);
+  }
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .field { display: flex; flex-direction: column; }
+  .field.full { grid-column: 1 / -1; }
+  .field label { font-family: "Montserrat", sans-serif; font-size: 13px; font-weight: 600; color: var(--navy); margin-bottom: 8px; }
+  .field label .req { color: var(--gold); }
+  .field input,
+  .field select,
+  .field textarea {
+    font-family: "Inter", sans-serif;
+    font-size: 15px;
+    padding: 13px 15px;
+    border: 1px solid var(--line);
+    border-radius: 9px;
+    background: #fff;
+    color: var(--ink);
+    transition: border-color .15s, box-shadow .15s;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  .field select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%235d6675' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 40px;
+  }
+  .field input:focus,
+  .field select:focus,
+  .field textarea:focus {
+    outline: none;
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(191,155,83,0.16);
+  }
+  .field textarea { resize: vertical; min-height: 96px; }
+  .form-submit { margin-top: 26px; display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+  .form-note { font-size: 13px; color: var(--muted); }
+
+  .form-success {
+    display: none;
+    margin-top: 18px;
+    padding: 14px 18px;
+    border-radius: 9px;
+    background: var(--gold-soft);
+    border: 1px solid var(--gold);
+    color: #5e4a1f;
+    font-size: 14.5px;
+    font-weight: 500;
+  }
+  .form-success.show { display: block; }
+  .form-error {
+    display: none;
+    margin-top: 18px;
+    padding: 14px 18px;
+    border-radius: 9px;
+    background: #fde8e8;
+    border: 1px solid #f4a0a0;
+    color: #7a1f1f;
+    font-size: 14.5px;
+    font-weight: 500;
+  }
+  .form-error.show { display: block; }
+
+  /* submit btn loading state */
+  .btn-dark[data-loading] {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+  }
+  .btn-dark[data-loading]:hover { transform: none; }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    background: #08111d;
+    color: rgba(255,255,255,0.66);
+    padding: 76px 0 34px;
+  }
+  .foot-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 48px;
+  }
+  .foot-brand .brand-name { color: #fff; }
+  .foot-tag { margin-top: 22px; max-width: 38ch; font-size: 15px; line-height: 1.7; }
+  .foot-col h4 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    margin-top: 0;
+  }
+  .foot-col ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+  .foot-col a { transition: color .15s; }
+  .foot-col a:hover { color: var(--gold-bright); }
+  .foot-line { display: flex; gap: 10px; font-size: 15px; }
+  .foot-line .fk { color: var(--muted-light); min-width: 58px; flex-shrink: 0; }
+  .foot-bottom {
+    margin-top: 56px;
+    padding-top: 26px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 13.5px;
+    color: var(--muted-light);
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 980px) {
+    body { font-size: 16px; }
+    nav.links { display: none; }
+    .menu-toggle { display: inline-flex; }
+    .nav-cta { display: none; }
+    .about-grid { grid-template-columns: 1fr; gap: 44px; }
+    .about-img-wrap { height: 360px; }
+    .about-badge { left: 16px; }
+    .cat-grid { grid-template-columns: repeat(2, 1fr); }
+    .prod-grid { grid-template-columns: repeat(2, 1fr); }
+    .why-grid { grid-template-columns: repeat(2, 1fr); }
+    .inquiry-grid { grid-template-columns: 1fr; gap: 48px; }
+    .foot-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 640px) {
+    .wrap { padding: 0 20px; }
+    section.block { padding: 76px 0; }
+    .hero-inner { padding: 80px 0 86px; }
+    .hero-stats { gap: 28px; }
+    .cat-grid { grid-template-columns: 1fr; }
+    .prod-grid { grid-template-columns: 1fr; }
+    .why-grid { grid-template-columns: 1fr; }
+    .form-grid { grid-template-columns: 1fr; }
+    .foot-grid { grid-template-columns: 1fr; }
+    .about-badge { position: static; margin-top: 20px; max-width: none; }
+    .form-card { padding: 28px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== MOBILE NAV ===== -->
+<div class="mobile-nav" id="mobile-nav">
+  <button class="mobile-nav-close" onclick="closeMobileNav()" aria-label="Close menu">×</button>
+  <a href="#about" onclick="closeMobileNav()">About</a>
+  <a href="#products" onclick="closeMobileNav()">Products</a>
+  <a href="#why" onclick="closeMobileNav()">Why Us</a>
+  <a href="#inquiry" onclick="closeMobileNav()">Inquiry</a>
+</div>
+
+<!-- ===== NAV ===== -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top">
+      <span class="brand-mark"></span>
+      <span class="brand-text">
+        <span class="brand-name">SPEEDLINE</span>
+        <span class="brand-sub">General Trading LLC</span>
+      </span>
+    </a>
+    <nav class="links">
+      <a href="#about">About</a>
+      <a href="#products">Products</a>
+      <a href="#why">Why Us</a>
+      <a href="#inquiry">Inquiry</a>
+    </nav>
+    <a href="#inquiry" class="btn btn-gold nav-cta">Request a Quote</a>
+    <button class="menu-toggle" onclick="openMobileNav()" aria-label="Open menu">Menu</button>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-inner">
+    <div class="wrap">
+      <span class="eyebrow">Dubai · U.A.E. — Global Commodities Trading</span>
+      <h1>Sourcing the world's <span class="accent">finest commodities</span>, delivered on spec.</h1>
+      <p class="hero-sub">Speedline General Trading LLC supplies premium commodities to importers, distributors, and industrial buyers worldwide — backed by trusted origins, inspected quality, and dependable maritime logistics out of Dubai.</p>
+      <div class="hero-actions">
+        <a href="#inquiry" class="btn btn-gold">Request a Quote <span class="arrow">→</span></a>
+        <a href="#products" class="btn btn-ghost">View Our Grades</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="hstat-num">12+</div>
+          <div class="hstat-label">Origin markets sourced</div>
+        </div>
+        <div>
+          <div class="hstat-num">50K MT</div>
+          <div class="hstat-label">Monthly supply capacity</div>
+        </div>
+        <div>
+          <div class="hstat-num">6+</div>
+          <div class="hstat-label">Commodity categories</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TRUST STRIP ===== -->
+<div class="trust">
+  <div class="wrap trust-inner">
+    <span><span class="dot"></span>Dubai-Licensed Trading House</span>
+    <span><span class="dot"></span>SGS-Inspected Quality</span>
+    <span><span class="dot"></span>Multi-Origin Global Sourcing</span>
+    <span><span class="dot"></span>CIF / FOB Worldwide Delivery</span>
+    <span><span class="dot"></span>Banker: ADCB, Dubai</span>
+  </div>
+</div>
+
+<!-- ===== ABOUT ===== -->
+<section class="block" id="about">
+  <div class="wrap about-grid">
+    <div class="about-copy">
+      <span class="eyebrow">About Speedline</span>
+      <h2>A Dubai-based trading partner built on trust and consistency.</h2>
+      <p>Speedline General Trading LLC is a U.A.E.-licensed commodities trading house specialising in the global supply of agricultural produce, metals, and industrial commodities. From our base in Dubai — one of the world's busiest trade corridors — we connect producers and refineries across leading origins with buyers across the Middle East, Asia, and Africa.</p>
+      <div class="about-points">
+        <div class="about-point">
+          <span class="tick">
+            <svg viewBox="0 0 12 12" fill="none"><path d="M2 6.2L5 9L10 2.6" stroke="#9c7b34" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <span><b>Trusted origins.</b> Direct relationships with established producers and multi-origin suppliers ensure consistent grade and reliable availability.</span>
+        </div>
+        <div class="about-point">
+          <span class="tick">
+            <svg viewBox="0 0 12 12" fill="none"><path d="M2 6.2L5 9L10 2.6" stroke="#9c7b34" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <span><b>Inspected quality.</b> Every shipment moves with SGS-grade inspection and transparent, internationally recognised documentation.</span>
+        </div>
+        <div class="about-point">
+          <span class="tick">
+            <svg viewBox="0 0 12 12" fill="none"><path d="M2 6.2L5 9L10 2.6" stroke="#9c7b34" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <span><b>End-to-end logistics.</b> We manage product reliably from origin to destination port — on spec, on schedule, CIF or FOB.</span>
+        </div>
+      </div>
+    </div>
+    <div class="about-visual">
+      <div class="about-img-wrap" id="about-img-wrap">
+        <!-- Replace the placeholder below with: <img src="your-image.jpg" alt="Speedline operations"> -->
+        <div class="about-img-placeholder">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#9c7b34" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          <p>facility · port · product photo</p>
+        </div>
+      </div>
+      <div class="about-badge">
+        <div class="big">Lic. 1205178</div>
+        <div class="small">Registered &amp; compliant in Dubai, U.A.E.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRODUCTS ===== -->
+<section class="block products" id="products">
+  <div class="wrap">
+    <div class="section-head center" id="products-head">
+      <span class="eyebrow center" id="products-eyebrow">Our Product Range</span>
+      <h2 id="products-h2">Commodities sourced globally, delivered on spec.</h2>
+      <p id="products-sub">Click any category to explore available grades and technical specifications.</p>
+    </div>
+
+    <!-- Level 1: Category cards -->
+    <div id="cat-view">
+      <div class="cat-grid" id="cat-grid"><!-- populated by JS --></div>
+    </div>
+
+    <!-- Level 2: Sub-product grades (shown after clicking a category) -->
+    <div id="sub-view" style="display:none">
+      <div class="subcat-header">
+        <button class="back-btn" onclick="showCategories()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+          All Products
+        </button>
+        <div>
+          <div class="subcat-title" id="subcat-title"></div>
+          <div class="subcat-breadcrumb" id="subcat-breadcrumb"></div>
+        </div>
+      </div>
+      <div class="prod-grid" id="sub-grid"><!-- populated by JS --></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHY US ===== -->
+<section class="block" id="why">
+  <div class="wrap">
+    <div class="section-head center">
+      <span class="eyebrow center">Why Choose Speedline</span>
+      <h2>Built for international buyers who can't afford surprises.</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.4-3 7.6-7 9-4-1.4-7-4.6-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
+        </div>
+        <h3>Quality Assurance</h3>
+        <p>Every lot is independently inspected to international specification with SGS-grade certificates of analysis before loading.</p>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2v20"/><path d="M17 6.5C17 4.6 14.8 4 12 4S7 4.9 7 7s2.5 2.6 5 3 5 1 5 3.2-2.2 3.3-5 3.3-5-.9-5-2.8"/></svg>
+        </div>
+        <h3>Competitive Pricing</h3>
+        <p>Direct mill relationships and efficient routing let us hold sharp, transparent pricing on CIF and FOB terms.</p>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 7h11v8H3z"/><path d="M14 10h4l3 3v2h-7z"/><circle cx="7" cy="17" r="2"/><circle cx="17.5" cy="17" r="2"/></svg>
+        </div>
+        <h3>Reliable Logistics</h3>
+        <p>Coordinated maritime freight, documentation, and port handling keep shipments moving on schedule, every time.</p>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.5 3.8 5.7 3.8 9S14.5 18.5 12 21c-2.5-2.5-3.8-5.7-3.8-9S9.5 5.5 12 3z"/></svg>
+        </div>
+        <h3>Global Network</h3>
+        <p>A multi-origin sourcing network spanning South America, Asia, and beyond — connected to buyers across the Gulf, Asia, and Africa.</p>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-3-6 3z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        </div>
+        <h3>Licensed &amp; Compliant</h3>
+        <p>A fully Dubai-registered trading entity (Lic. 1205178) operating to international trade and banking standards.</p>
+      </div>
+      <div class="why-item" style="background:var(--navy);">
+        <div class="why-icon" style="background:rgba(255,255,255,0.08);">
+          <svg viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></svg>
+        </div>
+        <h3 style="color:#fff;">Ready to ship</h3>
+        <p style="color:rgba(255,255,255,0.72);">Share your requirement and we'll respond with availability, pricing, and lead time within one business day.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== INQUIRY ===== -->
+<section class="block inquiry" id="inquiry">
+  <div class="wrap inquiry-grid">
+    <div class="inquiry-copy">
+      <span class="eyebrow">Get in Touch</span>
+      <h2>Request a Quote or Place an Inquiry</h2>
+      <p>Tell us what you need — grade, quantity, packaging, and destination — and our trade desk will respond with a firm offer.</p>
+      <div class="inquiry-contacts">
+        <div class="icontact">
+          <span class="ico">
+            <svg viewBox="0 0 24 24"><path d="M21 16.5v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 3.2 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.4 2.1L7.1 9.9a16 16 0 0 0 6 6l1.4-1.4a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+          </span>
+          <div>
+            <div class="lbl">Telephone</div>
+            <div class="val">+91 74186 26696 <span>+91 99854 82304</span></div>
+          </div>
+        </div>
+        <div class="icontact">
+          <span class="ico">
+            <svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          </span>
+          <div>
+            <div class="lbl">Dubai Office</div>
+            <div class="val">+971 56765 55598 <span>P.O. Box 12782, Dubai, U.A.E.</span></div>
+          </div>
+        </div>
+        <div class="icontact">
+          <span class="ico">
+            <svg viewBox="0 0 24 24"><path d="M3 6h18v12H3z"/><path d="M3 7l9 6 9-6"/></svg>
+          </span>
+          <div>
+            <div class="lbl">Email</div>
+            <div class="val"><a href="mailto:kinitechno@yahoo.com">kinitechno@yahoo.com</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <form class="form-card" id="inquiry-form" novalidate>
+      <div class="form-grid">
+        <div class="field">
+          <label>Full Name <span class="req">*</span></label>
+          <input type="text" name="name" placeholder="Your full name" required />
+        </div>
+        <div class="field">
+          <label>Company Name</label>
+          <input type="text" name="company" placeholder="Company / organisation" />
+        </div>
+        <div class="field">
+          <label>Email <span class="req">*</span></label>
+          <input type="email" name="email" placeholder="you@company.com" required />
+        </div>
+        <div class="field">
+          <label>Phone</label>
+          <input type="tel" name="phone" placeholder="+00 000 000 0000" />
+        </div>
+        <div class="field">
+          <label>Country</label>
+          <input type="text" name="country" placeholder="Destination country" />
+        </div>
+        <div class="field">
+          <label>Product of Interest <span class="req">*</span></label>
+          <select name="product" required>
+            <option value="" selected disabled>Select a product / grade</option>
+            <optgroup label="Sugar">
+              <option>Sugar — ICUMSA 45 (White Refined)</option>
+              <option>Sugar — ICUMSA 150 (VHP)</option>
+              <option>Sugar — ICUMSA 600–1200 (Raw Brown)</option>
+              <option>Sugar — ICUMSA 45 RBU (Plantation White)</option>
+              <option>Sugar — Organic / Special Grade</option>
+            </optgroup>
+            <optgroup label="Copper">
+              <option>Copper — Cathode Grade A</option>
+              <option>Copper — Wire Rod</option>
+              <option>Copper — Concentrate</option>
+              <option>Copper — Scrap (Grade 1 / 2)</option>
+            </optgroup>
+            <optgroup label="Rice">
+              <option>Rice — Basmati (Long Grain)</option>
+              <option>Rice — Thai White 5% Broken</option>
+              <option>Rice — Parboiled</option>
+            </optgroup>
+            <optgroup label="Wheat">
+              <option>Wheat — Hard Red Winter (HRW)</option>
+              <option>Wheat — Soft Red Winter (SRW)</option>
+              <option>Wheat — Durum</option>
+            </optgroup>
+            <optgroup label="Palm Oil">
+              <option>Palm Oil — RBD</option>
+              <option>Palm Oil — Crude (CPO)</option>
+              <option>Palm Oil — Palm Kernel Oil (PKO)</option>
+            </optgroup>
+            <optgroup label="Fertilizers">
+              <option>Fertilizer — Urea (46% N)</option>
+              <option>Fertilizer — DAP (18-46-0)</option>
+              <option>Fertilizer — MOP (62% K₂O)</option>
+            </optgroup>
+            <option>Other / Mixed Requirement</option>
+          </select>
+        </div>
+        <div class="field full">
+          <label>Quantity (MT)</label>
+          <input type="text" name="quantity" placeholder="e.g. 12,500 MT per month" />
+        </div>
+        <div class="field full">
+          <label>Additional Message</label>
+          <textarea name="message" placeholder="Packaging, delivery terms (CIF/FOB), destination port, target timeline…"></textarea>
+        </div>
+      </div>
+      <div class="form-submit">
+        <button type="submit" class="btn btn-dark" id="submit-btn">Submit Inquiry <span class="arrow">→</span></button>
+        <span class="form-note">We typically respond within one business day.</span>
+      </div>
+      <div class="form-success" id="form-success">
+        Thank you — your inquiry has been received. Our trade desk will be in touch shortly.
+      </div>
+      <div class="form-error" id="form-error">
+        Something went wrong. Please try again or email us directly at <a href="mailto:kinitechno@yahoo.com" style="color:inherit;font-weight:600;">kinitechno@yahoo.com</a>.
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="#top">
+          <span class="brand-mark"></span>
+          <span class="brand-text">
+            <span class="brand-name">SPEEDLINE</span>
+            <span class="brand-sub">General Trading LLC</span>
+          </span>
+        </a>
+        <p class="foot-tag">Dubai-based commodity traders — connecting the world's leading origins with importers and industrial buyers who value quality, consistency, and reliable delivery.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Contact</h4>
+        <ul>
+          <li class="foot-line"><span class="fk">Address</span><span>P.O. Box 12782, Dubai, U.A.E.</span></li>
+          <li class="foot-line"><span class="fk">License</span><span>No. 1205178</span></li>
+          <li class="foot-line"><span class="fk">Banker</span><span>ADCB, Dubai, U.A.E.</span></li>
+          <li class="foot-line"><span class="fk">Email</span><span><a href="mailto:kinitechno@yahoo.com">kinitechno@yahoo.com</a></span></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Telephone</h4>
+        <ul>
+          <li class="foot-line"><span class="fk">Tel</span><span>+91 74186 26696</span></li>
+          <li class="foot-line"><span class="fk">Tel</span><span>+91 99854 82304</span></li>
+          <li class="foot-line"><span class="fk">Dubai</span><span>+971 56765 55598</span></li>
+        </ul>
+        <ul style="margin-top:20px;">
+          <li><a href="#products">Products</a></li>
+          <li><a href="#inquiry">Request a Quote</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Speedline General Trading LLC. All rights reserved.</span>
+      <span>Sugar · Copper · Rice · Wheat · Palm Oil · Fertilizers · CIF / FOB Worldwide</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ─── PRODUCT DATA ───────────────────────────────────────────────────────────
+  // Update this object to add/remove categories and grades.
+  const PRODUCT_CATALOG = [
+    {
+      id: 'sugar',
+      name: 'Sugar',
+      description: 'Refined and raw cane sugar across the full ICUMSA grade range, sourced from Brazil and leading origins.',
+      swatch: 'linear-gradient(135deg, #fffbec, #e8c75a)',
+      icon: '🍬',
+      grades: [
+        {
+          tag: 'ICUMSA 45', badge: '≤ 45 IU',
+          name: 'White Refined Sugar',
+          desc: 'Sparkling white crystals — the global benchmark for direct consumption, beverages, and food & pharmaceutical processing.',
+          swatch: 'linear-gradient(135deg,#ffffff,#f0f2f5)',
+          specs: [['Color','Sparkling White'],['Polarization','99.80% min'],['Moisture','0.04% max'],['Origin','Brazil']]
+        },
+        {
+          tag: 'ICUMSA 150', badge: '≤ 150 IU',
+          name: 'Very High Polarization',
+          desc: 'Pale golden VHP sugar — a premium refining feedstock prized for its high, stable polarization.',
+          swatch: 'linear-gradient(135deg,#fbf3da,#f2e2b0)',
+          specs: [['Color','Pale Golden'],['Polarization','99.40% min'],['Moisture','0.08% max'],['Origin','Brazil']]
+        },
+        {
+          tag: 'ICUMSA 600–1200', badge: '600–1200 IU',
+          name: 'Raw Brown Sugar',
+          desc: 'Rich amber-brown raw cane sugar for refineries, fermentation, and industrial use.',
+          swatch: 'linear-gradient(135deg,#d8a25a,#9c5f24)',
+          specs: [['Color','Amber / Brown'],['Polarization','98.0–99.0%'],['Moisture','0.10% max'],['Origin','Brazil']]
+        },
+        {
+          tag: 'ICUMSA 45 RBU', badge: '≤ 45 IU',
+          name: 'Plantation White (RBU)',
+          desc: 'Bright refined-quality plantation white sugar from leading Asian origins for retail and food processing.',
+          swatch: 'linear-gradient(135deg,#ffffff,#eef0f3)',
+          specs: [['Color','Bright White'],['Polarization','99.80% min'],['Moisture','0.04% max'],['Origin','India / Thailand']]
+        },
+        {
+          tag: 'SPECIAL GRADE', badge: '45–100 IU',
+          name: 'Organic / Special Grade',
+          desc: 'Light-golden certified organic and specialty sugar for premium food brands and clean-label manufacturers.',
+          swatch: 'linear-gradient(135deg,#f6ead0,#e3c98c)',
+          specs: [['Color','Light Golden'],['Polarization','99.70% min'],['Moisture','0.06% max'],['Origin','Certified Estates']]
+        },
+      ]
+    },
+    {
+      id: 'copper',
+      name: 'Copper',
+      description: 'High-purity copper products sourced from certified smelters and refineries, traded to LME specification.',
+      swatch: 'linear-gradient(135deg, #e8a87c, #8b4c2a)',
+      icon: '🔶',
+      grades: [
+        {
+          tag: 'GRADE A', badge: 'LME Spec',
+          name: 'Copper Cathode',
+          desc: '99.99% pure electrolytic copper cathodes conforming to BS EN 1978 / LME Grade A specification.',
+          swatch: 'linear-gradient(135deg,#d4845a,#7a3a18)',
+          specs: [['Purity','99.99% min'],['Grade','LME Grade A'],['Form','Cathode plates'],['Origin','Multi-Origin']]
+        },
+        {
+          tag: 'WIRE ROD', badge: '8mm / 12mm',
+          name: 'Copper Wire Rod',
+          desc: 'Continuous-cast copper wire rod used in electrical wiring, motors, and transformer windings.',
+          swatch: 'linear-gradient(135deg,#c87941,#6b3416)',
+          specs: [['Purity','99.97% min'],['Diameter','8 mm / 12 mm'],['Standard','ASTM B49'],['Origin','Multi-Origin']]
+        },
+        {
+          tag: 'CONCENTRATE', badge: '20–35% Cu',
+          name: 'Copper Concentrate',
+          desc: 'Sulfide copper concentrate from primary mining operations, suitable for smelter feed.',
+          swatch: 'linear-gradient(135deg,#9e6040,#4a2010)',
+          specs: [['Cu Content','20–35%'],['Form','Wet concentrate'],['Moisture','8–10%'],['Origin','South America']]
+        },
+        {
+          tag: 'SCRAP', badge: 'Grade 1 / 2',
+          name: 'Copper Scrap',
+          desc: 'Clean bare bright (Grade 1) and mixed copper scrap (Grade 2) for remelting and recycling.',
+          swatch: 'linear-gradient(135deg,#b87c50,#5c2e0e)',
+          specs: [['Grade','No.1 / No.2'],['Cu Min','95% / 88%'],['Form','Loose / Baled'],['Origin','Various']]
+        },
+      ]
+    },
+    {
+      id: 'rice',
+      name: 'Rice',
+      description: "Premium milled rice varieties sourced from Asia's leading growing regions for bulk food trade.",
+      swatch: 'linear-gradient(135deg, #f8f5ec, #d8cfa8)',
+      icon: '🌾',
+      grades: [
+        {
+          tag: 'BASMATI', badge: 'Long Grain',
+          name: 'Basmati Rice',
+          desc: 'Aged long-grain basmati with characteristic aroma — the preferred choice for Middle Eastern and South Asian markets.',
+          swatch: 'linear-gradient(135deg,#faf7ed,#e8dab8)',
+          specs: [['Grain Length','8.0 mm avg'],['Moisture','12.5% max'],['Broken','2% max'],['Origin','India / Pakistan']]
+        },
+        {
+          tag: 'THAI WHITE', badge: '5% Broken',
+          name: 'Thai White Rice',
+          desc: 'Milled Thai white rice (100B grade), widely used across Africa, Asia, and the Middle East.',
+          swatch: 'linear-gradient(135deg,#f5f2e8,#ddd3b0)',
+          specs: [['Grade','100B / 5% BR'],['Moisture','14% max'],['Milling','Well-milled'],['Origin','Thailand']]
+        },
+        {
+          tag: 'PARBOILED', badge: 'Long Grain',
+          name: 'Parboiled Rice',
+          desc: 'Partially pre-cooked through parboiling — retains nutrients and stays firm after cooking.',
+          swatch: 'linear-gradient(135deg,#ede5c8,#c5b47a)',
+          specs: [['Grade','Long grain'],['Moisture','14% max'],['Broken','5% max'],['Origin','India']]
+        },
+      ]
+    },
+    {
+      id: 'wheat',
+      name: 'Wheat',
+      description: 'Food-grade wheat and milling grades from major producing regions for flour milling and food manufacturing.',
+      swatch: 'linear-gradient(135deg, #f5e08a, #c09020)',
+      icon: '🌿',
+      grades: [
+        {
+          tag: 'HRW', badge: 'Hard Red Winter',
+          name: 'Hard Red Winter Wheat',
+          desc: 'High-protein HRW wheat — the backbone of bread flour and general purpose milling worldwide.',
+          swatch: 'linear-gradient(135deg,#eac96a,#a07020)',
+          specs: [['Protein','12.5% min'],['Moisture','13.5% max'],['Test Weight','60 kg/hl min'],['Origin','USA / Argentina']]
+        },
+        {
+          tag: 'SRW', badge: 'Soft Red Winter',
+          name: 'Soft Red Winter Wheat',
+          desc: 'Low-protein soft wheat ideal for biscuits, crackers, cakes, and pastry flour production.',
+          swatch: 'linear-gradient(135deg,#ddb84a,#906010)',
+          specs: [['Protein','9.5% min'],['Moisture','13.5% max'],['Test Weight','58 kg/hl min'],['Origin','USA']]
+        },
+        {
+          tag: 'DURUM', badge: 'Extra Strong',
+          name: 'Durum Wheat',
+          desc: 'High-vitreous durum wheat for semolina and pasta manufacturing to Italian milling standards.',
+          swatch: 'linear-gradient(135deg,#f0c84a,#b08030)',
+          specs: [['Vitreous','85% min'],['Protein','13% min'],['Moisture','14% max'],['Origin','Canada / Australia']]
+        },
+      ]
+    },
+    {
+      id: 'palmoil',
+      name: 'Palm Oil',
+      description: 'Refined and crude palm oil products from certified South-East Asian mills for food and oleochemical use.',
+      swatch: 'linear-gradient(135deg, #f5a830, #c06010)',
+      icon: '🌴',
+      grades: [
+        {
+          tag: 'RBD', badge: 'Food Grade',
+          name: 'RBD Palm Oil',
+          desc: 'Refined, bleached, and deodorised (RBD) palm oil for food manufacturing and frying applications.',
+          swatch: 'linear-gradient(135deg,#f0c050,#c07020)',
+          specs: [['FFA','0.10% max'],['Moisture','0.10% max'],['Iodine Value','50–55'],['Origin','Malaysia / Indonesia']]
+        },
+        {
+          tag: 'CPO', badge: 'Crude',
+          name: 'Crude Palm Oil (CPO)',
+          desc: 'Crude palm oil with high carotene content, supplied for refinery input and industrial processing.',
+          swatch: 'linear-gradient(135deg,#e89030,#904010)',
+          specs: [['FFA','5% max'],['Moisture','0.25% max'],['Carotene','500–700 ppm'],['Origin','Indonesia']]
+        },
+        {
+          tag: 'PKO', badge: 'Palm Kernel',
+          name: 'Palm Kernel Oil',
+          desc: 'Cold-pressed and solvent-extracted palm kernel oil used in oleochemical and cosmetic industries.',
+          swatch: 'linear-gradient(135deg,#d8a040,#785010)',
+          specs: [['FFA','5% max'],['Moisture','0.20% max'],['Lauric Acid','46–52%'],['Origin','Malaysia']]
+        },
+      ]
+    },
+    {
+      id: 'fertilizers',
+      name: 'Fertilizers',
+      description: 'Agricultural-grade fertilizers in bulk and bagged form, supplied to trading standards for crop nutrition.',
+      swatch: 'linear-gradient(135deg, #9dcc6a, #4a8420)',
+      icon: '🌱',
+      grades: [
+        {
+          tag: 'UREA', badge: '46% N',
+          name: 'Urea (Prilled / Granular)',
+          desc: 'Agricultural urea (46% N) in prilled or granular form — the world\'s most widely used nitrogen fertilizer.',
+          swatch: 'linear-gradient(135deg,#e8f0d0,#b0c870)',
+          specs: [['Nitrogen','46% min'],['Biuret','1.0% max'],['Moisture','0.5% max'],['Form','Prilled / Granular']]
+        },
+        {
+          tag: 'DAP', badge: '18-46-0',
+          name: 'Diammonium Phosphate',
+          desc: 'DAP 18-46-0 in granular form — a widely traded compound fertilizer used at planting.',
+          swatch: 'linear-gradient(135deg,#d0e8a0,#80a840)',
+          specs: [['N Content','18% min'],['P₂O₅','46% min'],['Moisture','1.5% max'],['Form','Granular']]
+        },
+        {
+          tag: 'MOP', badge: '62% K₂O',
+          name: 'Muriate of Potash',
+          desc: 'Standard and granular MOP (62% K₂O) sourced from major producing mines for soil potassium nutrition.',
+          swatch: 'linear-gradient(135deg,#c8d890,#608030)',
+          specs: [['K₂O','62% min'],['NaCl','1.5% max'],['Moisture','1.0% max'],['Form','Standard / Granular']]
+        },
+      ]
+    },
+  ];
+
+  // ─── RENDER HELPERS ─────────────────────────────────────────────────────────
+  function specHTML(specs) {
+    return specs.map(([k, v]) => `
+      <div class="spec"><div class="k">${k}</div><div class="v">${v}</div></div>`).join('');
+  }
+
+  function gradeCardHTML(g, ctaLabel) {
+    return `
+      <article class="prod-card">
+        <div class="prod-swatch" style="background:${g.swatch};border-bottom:1px solid var(--line);">
+          <span class="grade">${g.tag}</span>
+          <span class="icumsa">${g.badge}</span>
+        </div>
+        <div class="prod-body">
+          <h3>${g.name}</h3>
+          <p class="prod-desc">${g.desc}</p>
+          <div class="prod-specs">${specHTML(g.specs)}</div>
+        </div>
+      </article>`;
+  }
+
+  function ctaCardHTML(categoryName) {
+    return `
+      <article class="prod-card" style="background:var(--navy);border-color:var(--navy);justify-content:center;align-items:flex-start;padding:36px;">
+        <h3 style="font-family:Montserrat,sans-serif;font-weight:700;font-size:22px;color:#fff;">Need a custom ${categoryName} spec or volume?</h3>
+        <p style="color:rgba(255,255,255,0.72);margin-top:12px;font-size:15.5px;">Tell us your grade, packaging, and destination — we'll quote CIF or FOB within 24 hours.</p>
+        <a href="#inquiry" class="btn btn-gold" style="margin-top:24px;">Request a Quote →</a>
+      </article>`;
+  }
+
+  // ─── NAVIGATION ─────────────────────────────────────────────────────────────
+  function showCategories() {
+    document.getElementById('sub-view').style.display = 'none';
+    document.getElementById('cat-view').style.display = 'block';
+    document.getElementById('products-eyebrow').textContent = 'Our Product Range';
+    document.getElementById('products-h2').textContent = 'Commodities sourced globally, delivered on spec.';
+    document.getElementById('products-sub').textContent = 'Click any category to explore available grades and technical specifications.';
+    window.scrollTo({ top: document.getElementById('products').offsetTop - 100, behavior: 'smooth' });
+  }
+
+  function showSubProducts(categoryId) {
+    const cat = PRODUCT_CATALOG.find(c => c.id === categoryId);
+    if (!cat) return;
+
+    // Update section heading
+    document.getElementById('products-eyebrow').textContent = cat.name;
+    document.getElementById('products-h2').textContent = cat.name + ' — Available Grades';
+    document.getElementById('products-sub').textContent = cat.description;
+
+    // Update sub-view header
+    document.getElementById('subcat-title').textContent = cat.name;
+    document.getElementById('subcat-breadcrumb').textContent =
+      `${cat.grades.length} grade${cat.grades.length !== 1 ? 's' : ''} available — all supplied to international specification`;
+
+    // Render grade cards
+    const grid = document.getElementById('sub-grid');
+    grid.innerHTML = cat.grades.map(g => gradeCardHTML(g)).join('') + ctaCardHTML(cat.name);
+
+    // Adjust grid columns for fewer items
+    const count = cat.grades.length + 1; // +1 for CTA card
+    grid.style.gridTemplateColumns = count <= 2 ? '1fr 1fr' : '';
+
+    // Switch views
+    document.getElementById('cat-view').style.display = 'none';
+    document.getElementById('sub-view').style.display = 'block';
+    window.scrollTo({ top: document.getElementById('products').offsetTop - 100, behavior: 'smooth' });
+  }
+
+  // ─── INIT CATEGORIES ────────────────────────────────────────────────────────
+  (function initCategories() {
+    const grid = document.getElementById('cat-grid');
+    grid.innerHTML = PRODUCT_CATALOG.map(cat => `
+      <div class="cat-card" onclick="showSubProducts('${cat.id}')">
+        <div class="cat-swatch" style="background:${cat.swatch};"></div>
+        <div class="cat-body">
+          <h3>${cat.name}</h3>
+          <p class="cat-desc">${cat.description}</p>
+          <div class="cat-footer">
+            <span class="cat-count">${cat.grades.length} grade${cat.grades.length !== 1 ? 's' : ''}</span>
+            <span class="cat-cta">Explore <span>→</span></span>
+          </div>
+        </div>
+      </div>`).join('');
+  })();
+
+  // Mobile nav
+  function openMobileNav() { document.getElementById('mobile-nav').classList.add('open'); }
+  function closeMobileNav() { document.getElementById('mobile-nav').classList.remove('open'); }
+
+  // Inquiry form — submits to /api/inquiry, sends email via server
+  document.getElementById('inquiry-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const btn = document.getElementById('submit-btn');
+    const successEl = document.getElementById('form-success');
+    const errorEl = document.getElementById('form-error');
+
+    // Basic client-side validation
+    const name = form.name.value.trim();
+    const email = form.email.value.trim();
+    const product = form.product.value;
+    if (!name || !email || !product) {
+      errorEl.textContent = 'Please fill in your name, email, and product of interest.';
+      errorEl.classList.add('show');
+      return;
+    }
+
+    btn.setAttribute('data-loading', '');
+    btn.textContent = 'Sending…';
+    successEl.classList.remove('show');
+    errorEl.classList.remove('show');
+
+    const payload = {
+      name,
+      company: form.company.value.trim(),
+      email,
+      phone: form.phone.value.trim(),
+      country: form.country.value.trim(),
+      product,
+      quantity: form.quantity.value.trim(),
+      message: form.message.value.trim(),
+    };
+
+    try {
+      const res = await fetch('/api/inquiry', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await res.json();
+
+      if (res.ok && data.success) {
+        successEl.classList.add('show');
+        form.reset();
+        btn.textContent = 'Inquiry Sent ✓';
+      } else {
+        throw new Error(data.error || 'Unknown error');
+      }
+    } catch (err) {
+      errorEl.textContent = 'Something went wrong. Please try again or email us directly at kinitechno@yahoo.com.';
+      errorEl.classList.add('show');
+      btn.textContent = 'Submit Inquiry →';
+    } finally {
+      btn.removeAttribute('data-loading');
+    }
+  });
+</script>
+
+</body>
+</html>
