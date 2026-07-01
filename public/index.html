@@ -333,6 +333,29 @@
     .wrap { padding: 0 16px; }
     section.block { padding: 56px 0; }
   }
+  /* ─── PHOTO STRIP ────────────────────────────────── */
+  .photo-strip { display: grid; grid-template-columns: repeat(3, 1fr); height: 300px; overflow: hidden; }
+  .photo-strip-item { position: relative; overflow: hidden; }
+  .photo-strip-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; display: block; }
+  .photo-strip-item:hover img { transform: scale(1.06); }
+  .photo-strip-item .caption { position: absolute; inset: 0; background: linear-gradient(to top, rgba(13,31,45,0.75) 0%, transparent 55%); display: flex; align-items: flex-end; padding: 20px 22px; }
+  .photo-strip-item .caption span { font-family: "Montserrat", sans-serif; font-weight: 700; font-size: 15px; color: #fff; letter-spacing: 0.02em; text-shadow: 0 2px 8px rgba(0,0,0,0.4); }
+  .photo-strip-ph { width: 100%; height: 100%; background: var(--cream-2); display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 12px; font-family: monospace; }
+
+  /* ─── CANE BANNER ────────────────────────────────── */
+  .cane-banner { position: relative; height: 340px; overflow: hidden; background: #0d1f2d; }
+  .cane-banner img { width: 100%; height: 100%; object-fit: cover; object-position: center 60%; display: block; }
+  .cane-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(13,31,45,0.82) 40%, rgba(13,31,45,0.42)); display: flex; align-items: center; }
+  .cane-inner { display: flex; align-items: center; gap: 48px; flex-wrap: wrap; }
+  .cane-quote { font-family: "Montserrat", sans-serif; font-weight: 600; font-size: clamp(17px, 2.2vw, 24px); color: #fff; max-width: 58ch; line-height: 1.5; font-style: italic; }
+  @media (max-width: 640px) {
+    .photo-strip { grid-template-columns: 1fr; height: auto; }
+    .photo-strip-item { height: 200px; }
+    .cane-banner { height: 260px; }
+    .cane-inner { flex-direction: column; gap: 20px; }
+    .cane-quote { font-size: 15px; }
+  }
+
   @supports (padding-top: env(safe-area-inset-top)) {
     header.nav { padding-top: env(safe-area-inset-top); }
     .mobile-nav { padding-top: env(safe-area-inset-top); }
@@ -422,13 +445,13 @@
       <div class="hero-visual">
         <div class="hero-img-wrap">
           <div class="hero-img-glow"></div>
-          <img class="hero-product-img" src="/images/rice-bag.jpg" alt="Speedline General Trading — Premium Commodity Packaging"
+          <img class="hero-product-img" src="/images/rice-field.jpg" alt="Premium Basmati Rice — Speedline General Trading"
                onerror="this.style.display='none';document.getElementById('hero-ph').style.display='flex';">
           <div class="hero-img-ph" id="hero-ph" style="display:none;">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
               <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/>
             </svg>
-            <p>Place your rice bag photo here:<br><code>public/images/rice-bag.jpg</code></p>
+            <p>Save your rice field photo as:<br><code>public/images/rice-field.jpg</code></p>
           </div>
           <div class="hero-badge">
             <div class="big">Lic. 1205178</div>
@@ -477,9 +500,12 @@
     </div>
     <div class="about-visual">
       <div class="about-img-wrap" id="about-img-wrap">
-        <div class="about-img-ph">
+        <img src="/images/spices.jpg" alt="Premium Commodities — Speedline General Trading"
+             style="width:100%;height:100%;object-fit:cover;"
+             onerror="this.style.display='none';document.getElementById('about-ph').style.display='flex';">
+        <div id="about-ph" class="about-img-ph" style="display:none;">
           <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#c8902a" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-          <p>facility · port · product photo</p>
+          <p>Save spices image as:<br><code>public/images/spices.jpg</code></p>
         </div>
       </div>
       <div class="about-badge">
@@ -489,6 +515,22 @@
     </div>
   </div>
 </section>
+
+<!-- PHOTO STRIP -->
+<div class="photo-strip">
+  <div class="photo-strip-item">
+    <img src="/images/rice-field.jpg" alt="Premium Rice" onerror="this.outerHTML='<div class=photo-strip-ph>rice-field.jpg</div>'">
+    <div class="caption"><span>Premium Rice</span></div>
+  </div>
+  <div class="photo-strip-item">
+    <img src="/images/spices.jpg" alt="Spices &amp; Commodities" onerror="this.outerHTML='<div class=photo-strip-ph>spices.jpg</div>'">
+    <div class="caption"><span>Global Commodities</span></div>
+  </div>
+  <div class="photo-strip-item">
+    <img src="/images/sugarcane.jpg" alt="Sugar Cane" onerror="this.outerHTML='<div class=photo-strip-ph>sugarcane.jpg</div>'">
+    <div class="caption"><span>Cane Sugar Origins</span></div>
+  </div>
+</div>
 
 <!-- ═══ PRODUCTS ══════════════════════════════════════════ -->
 <section class="block bg-cream-2" id="products">
@@ -575,6 +617,18 @@
     </div>
   </div>
 </section>
+
+<!-- SUGARCANE VISUAL DIVIDER -->
+<div class="cane-banner">
+  <img src="/images/sugarcane.jpg" alt="Sugar Cane Fields — Speedline General Trading"
+       onerror="this.style.display='none';this.parentNode.style.background='linear-gradient(135deg,#1a3020,#0d1f2d)';">
+  <div class="cane-overlay">
+    <div class="wrap cane-inner">
+      <p class="cane-quote">"From the world's finest growing fields to your facility — on specification, every shipment."</p>
+      <a href="#contact" class="btn btn-amber">Request a Quote →</a>
+    </div>
+  </div>
+</div>
 
 <!-- ═══ QUALITY & STANDARDS ══════════════════════════════ -->
 <section class="block-sm quality-section" id="quality">
