@@ -85,7 +85,7 @@ app.post('/api/inquiry', async (req, res) => {
 
   const mailOptions = {
     from: `"Speedline Website" <${process.env.SMTP_USER}>`,
-    to: 'speedlifeexports@gmail.com',
+    to: 'sales@speedlifetrades.com',
     replyTo: email,
     subject: `New Inquiry: ${product} — ${name}${company ? ` (${company})` : ''}`,
     html,
