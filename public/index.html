@@ -1067,7 +1067,7 @@ document.getElementById('inquiry-form').addEventListener('submit', async functio
     message: form.message.value.trim(),
   };
   try {
-    const res = await fetch('/api/inquiry', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload) });
+    const res = await fetch('contact.php', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload) });
     const data = await res.json();
     if (res.ok && data.success) {
       successEl.classList.add('show');
@@ -1075,7 +1075,7 @@ document.getElementById('inquiry-form').addEventListener('submit', async functio
       btn.textContent = 'Inquiry Sent ✓';
     } else { throw new Error(data.error || 'Unknown error'); }
   } catch {
-    errorEl.textContent = 'Something went wrong. Please try again or email us directly at sales@speedlifetrades.com.';
+    errorEl.textContent = 'Something went wrong. Please try again or email us directly at sales@speedlifeexports.com.';
     errorEl.classList.add('show');
     btn.textContent = 'Submit Inquiry →';
   } finally {
