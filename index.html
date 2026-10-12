@@ -1074,8 +1074,8 @@ document.getElementById('inquiry-form').addEventListener('submit', async functio
       form.reset();
       btn.textContent = 'Inquiry Sent ✓';
     } else { throw new Error(data.error || 'Unknown error'); }
-  } catch {
-    errorEl.textContent = 'Something went wrong. Please try again or email us directly at sales@speedlifeexports.com.';
+  } catch(err) {
+    errorEl.textContent = err.message || 'Something went wrong. Please email us at sales@speedlifeexports.com.';
     errorEl.classList.add('show');
     btn.textContent = 'Submit Inquiry →';
   } finally {
